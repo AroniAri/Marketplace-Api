@@ -31,9 +31,6 @@ public abstract class User {
 
     public abstract String getName();
 
-    public abstract String getFullName();
-
-    public abstract void setFullName(String s);
 
     public abstract Iterator<Group> getGroups();
 
