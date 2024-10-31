@@ -37,4 +37,7 @@ public class UserDTO {
     public void setUsername(@NotEmpty String username) {
         this.username = username;
     }
+
+    public void getName() {
+    }
 }

@@ -1,6 +1,4 @@
 package se.lexicon.marketplaceapi.controllers;
-
-import org.apache.catalina.User;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import se.lexicon.marketplaceapi.dto.UserDTO;
+import se.lexicon.marketplaceapi.model.User;
 import se.lexicon.marketplaceapi.service.UserService;
 
 @RestController
@@ -19,6 +18,7 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<SecurityProperties.User> loginUser(@RequestBody UserDTO userDTO) throws UserService.InvalidCredentialsException {
         User user = userService.authenticateUser(userDTO.getEmail(), userDTO.getPassword());
-        return ResponseEntity.ok((SecurityProperties.User) user);
+        ResponseEntity<SecurityProperties.User> ResponseEntity = null;
+        return ResponseEntity;
     }
 }
