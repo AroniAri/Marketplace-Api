@@ -13,6 +13,7 @@ import java.util.List;
 @Service
 public class AdvertisementService {
 
+    @Autowired
     private AdvertisementRepository advertisementRepository;
 
     public AdvertisementRepository createAdvertisement(AdvertisementDTO adDTO, User user) {
