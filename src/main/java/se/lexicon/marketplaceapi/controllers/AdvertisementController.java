@@ -16,15 +16,15 @@ import java.util.List;
 @RequestMapping("/api/ads")
 public class AdvertisementController {
 
-
+    @Autowired
     public AdvertisementService advertisementService;
 
-
+    @Autowired
     public UserService userService;
 
     @PostMapping("/create")
     public ResponseEntity<Advertisement> createAdvertisement(@RequestBody AdvertisementDTO adDTO, @RequestParam String email) throws UserService.InvalidCredentialsException {
-        User user = (User) userService.authenticateUser(email, adDTO.getPassword());
+        User user = userService.authenticateUser(email, adDTO.getPassword());
         Advertisement ad = (Advertisement) advertisementService.createAdvertisement(adDTO, (org.apache.catalina.User) user);
         return ResponseEntity.ok(ad);
     }
